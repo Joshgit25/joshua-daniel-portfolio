@@ -1,0 +1,371 @@
+:host {
+  display: block;
+}
+
+.about {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 0 100px;
+  /* top space clears the fixed navbar */
+  color: var(--text);
+  overflow: hidden;
+}
+
+/* ── Heading ── */
+.beyond-title {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(3.25rem, 7.5vw, 5.75rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.beyond-accent {
+  display: block;
+  color: var(--accent);
+}
+
+/* ── Quote ── */
+.manifesto-quote {
+  margin: 32px 0 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+  max-width: 34ch;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+/* ── Bio ── */
+.bio {
+  margin-top: 28px;
+  max-width: 62ch;
+}
+
+.bio p {
+  margin: 0 0 14px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  /* font-size: 1.2rem; */
+  /* Cormorant runs small, so size it up */
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ── Stats ── */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  /* value on top, label below, DOM keeps dt before dd */
+  gap: 6px;
+  min-width: 130px;
+  padding: 16px 22px;
+  background: var(--surface);
+  border: 1px solid var(--card-border, var(--border));
+  border-radius: 12px;
+}
+
+.stat-value {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+/* ── Tabs ── */
+.details {
+  margin-top: 40px;
+  max-width: 640px;
+}
+
+.tablist {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  position: relative;
+  padding: 10px 16px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  color: var(--text);
+}
+
+.tab.active::after {
+  transform: scaleX(1);
+}
+
+.panel {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 0;
+  animation: panel-in 0.3s ease;
+}
+
+.panel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-item:last-child {
+  border-bottom: 0;
+}
+
+.panel-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.panel-meta {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Buttons ── */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.btn-solid,
+.btn-ghost {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent);
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-solid {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-solid:hover {
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn-ghost:hover {
+  background: var(--accent-soft, transparent);
+  transform: translateY(-2px);
+}
+
+/* ── Portrait ── */
+.portrait-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.portrait {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0;
+}
+
+.portrait::before {
+  content: '';
+  inset: 18px -18px -18px 18px;
+  border: 1.5px solid var(--accent);
+  border-radius: 18px;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.portrait-img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+}
+
+:host-context([data-theme='dark']) .portrait-img {
+  filter: brightness(0.9) saturate(80%) contrast(108%);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.portrait-tag {
+  position: absolute;
+  z-index: 2;
+  left: -20px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.portrait-tag strong,
+.portrait-tag small {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.portrait-tag strong {
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.portrait-tag small {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+}
+
+/* ── Focus states ── */
+.tab:focus-visible,
+.btn-solid:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991.98px) {
+  .about {
+    padding-top: 100px;
+  }
+
+  .portrait-col {
+    justify-content: center;
+  }
+
+  .portrait {
+    max-width: 400px;
+  }
+
+  .portrait::before {
+    inset: 14px -10px -14px 10px;
+  }
+
+  .portrait-tag {
+    left: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats {
+    gap: 10px;
+  }
+
+  .stat {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+    padding: 14px 16px;
+  }
+
+  .tab {
+    padding: 10px 12px;
+  }
+
+  .tab::after {
+    left: 12px;
+    right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+
+  .tab::after,
+  .btn-solid,
+  .btn-ghost {
+    transition: none;
+  }
+}

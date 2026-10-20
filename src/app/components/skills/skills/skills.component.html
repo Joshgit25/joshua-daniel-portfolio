@@ -1,0 +1,47 @@
+<section class="skill-section" id="skills">
+
+  <div class="grid-bg"></div>
+
+  <div class="container-fluid px-5">
+    <p class="section-label"><b>03</b> // Technical Skills</p>
+
+    <div class="row mt-3">
+      <div class="col-lg-7 left-col">
+        <h1 class="beyond-title">{{tech | uppercase}}</h1>
+        <h1 class="beyond-title italic-blue">& {{skill | uppercase}}.</h1>
+
+        <p class="skills-text mt-4">
+          Interactive 3D technology wall with authentic brand identities. Move your mouse to explore depth, rotation,
+          and spatial physics.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auto-scrolling rows (full width) -->
+  <div class="marquee-wrap mt-5">
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <div class="tech-card" *ngFor="let skill of loopSkills">
+          <div class="card-inner">
+            <i class="{{ skill.icon }}" [style.color]="skill.color"></i>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee">
+      <div class="marquee-track reverse">
+        <div class="tech-card" *ngFor="let skill of loopSkillsReverse">
+          <div class="card-inner">
+            <i class="{{ skill.icon }}" [style.color]="skill.color"></i>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

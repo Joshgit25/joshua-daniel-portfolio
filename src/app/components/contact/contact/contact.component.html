@@ -1,0 +1,246 @@
+<section class="contact-section" id="contact">
+
+  <!-- Background grid -->
+  <div class="grid-bgs"></div>
+
+  <div class="container-fluid px-4 px-lg-5">
+    <div class="contact-card">
+
+      <!-- Section label -->
+      <p class="section-label">
+        <b>06</b> // CORRESPONDENCE PORTAL
+      </p>
+
+      <!-- Main row -->
+      <div class="row align-items-center mt-4">
+
+        <!-- LEFT COLUMN: Developer card -->
+        <div class="col-lg-5 col-md-6 left-col" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="card-container">
+
+            <!-- Hanging rope -->
+            <div class="lanyard">
+              <div class="rope"></div>
+              <div class="clip"></div>
+            </div>
+
+            <!-- Profile card -->
+            <article class="profile-card">
+
+              <!-- Header -->
+              <header class="card-header">
+                <span class="code-logo">&lt;/&gt;</span>
+
+                <div class="header-text">
+                  <p class="label">DEVELOPER CARD</p>
+                  <h2>Frontend Developer</h2>
+                </div>
+
+                <span class="status-dot"></span>
+              </header>
+
+              <div class="divider"></div>
+
+              <!-- Profile details -->
+              <section class="profile">
+
+                <div class="photo-wrapper">
+                  <img src="/Josh_pic.jpeg" alt="Joshua Daniel" class="profile-photo" />
+                </div>
+
+                <div class="profile-info">
+                  <p class="intro">HELLO, I'M</p>
+
+                  <h1>
+                    Joshua<br />
+                    Daniel<span>.</span>
+                  </h1>
+
+                  <p class="role">Angular Developer</p>
+
+                  <p class="description">
+                    Building clean, responsive and engaging
+                    web experiences.
+                  </p>
+
+                  <div class="experience">
+                    <span></span>
+                    1.6+ Years Experience
+                  </div>
+                </div>
+
+              </section>
+
+              <!-- Technologies -->
+              <section class="tech-stack">
+                <p class="section-title">TECHNOLOGIES</p>
+
+                <div class="skills">
+                  <span>Angular</span>
+                  <span>Bootstrap</span>
+                  <span>REST API</span>
+                </div>
+              </section>
+
+              <!-- Footer -->
+              <!-- <footer class="card-footer">
+                <span class="footer-logo">&lt;/&gt;</span>
+
+                <p>
+                  DESIGN <span>•</span>
+                  DEVELOP <span>•</span>
+                  CREATE
+                </p>
+
+                <span class="card-number">JD.01</span>
+              </footer> -->
+
+            </article>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Contact content -->
+        <div class="col-lg-7 col-md-6 right-col">
+
+          <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+
+            <h1 class="contact-title">
+              Ready to create something
+            </h1>
+
+            <h2 class="contact-name">
+              Unforgettable<span>?</span>
+            </h2>
+
+            <p class="contact-subject">
+              Touch the Connect button below to initialize
+              the high-speed connection sequence.
+            </p>
+
+            <button class="connect-btn" (click)="connectBtn()">
+              Connect
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Contact Modal -->
+<div class="connect-overlay" *ngIf="showContact" (click)="closeContact()">
+  <div class="connect-modal" role="dialog" aria-modal="true" aria-labelledby="connect-title"
+    (click)="$event.stopPropagation()">
+    <!-- Header -->
+    <div class="modal-header">
+      <div>
+        <span class="eyebrow">LET'S CONNECT</span>
+        <h2 id="connect-title">Get in touch</h2>
+      </div>
+
+      <button type="button" class="close-btn" aria-label="Close modal" (click)="closeContact()">
+        &times;
+      </button>
+    </div>
+
+    <!-- Profile -->
+    <div class="profile-section">
+      <div class="profile-avatar">
+        {{ profileName() }}
+      </div>
+
+      <div class="profile-info">
+        <h3>Joshua Daniel</h3>
+        <p>Angular Developer</p>
+        <span class="availability">
+          <span class="status-dot"></span>
+          Available for opportunities
+        </span>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="modal-description">
+      <h3>Interested in building something together?</h3>
+      <p>
+        Have a project, an opportunity, or just want to say hello?
+        I'd love to hear from you.
+      </p>
+    </div>
+
+    <!-- Contact details -->
+    <div class="contact-list">
+      <a href="mailto:joshuadaniel.dev&#64;.com" class="contact-item">
+        <span class="contact-icon">&#64;</span>
+        <span>
+          <small>Email Inquiries</small>
+          <strong>joshuadaniel.dev&#64;gmail.com</strong>
+        </span>
+        <span class="arrow">&nearr;</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/joshuadanieldev/" target="_blank" rel="noopener noreferrer"
+        class="contact-item">
+        <span class="contact-icon">in</span>
+        <span>
+          <small>Connect on</small>
+          <strong>LinkedIn</strong>
+        </span>
+        <span class="arrow">&nearr;</span>
+      </a>
+
+      <a href="https://github.com/Joshgit25?tab=repositories" target="_blank" rel="noopener noreferrer"
+        class="contact-item">
+        <span class="contact-icons">&lt;/&gt;</span>
+        <span>
+          <small>Explore my</small>
+          <strong>GitHub</strong>
+        </span>
+        <span class="arrow">&nearr;</span>
+      </a>
+    </div>
+
+    <div class="modal-body">
+
+      <form class="contact-form" #contactForm="ngForm" (ngSubmit)="connectMe(contactForm)">
+
+        <div class="mt-3">
+          <label for="user_name" class="form-label">Your Name</label>
+          <input id="user_name" type="text" class="form-control" name="user_name" [(ngModel)]="contact.user_name"
+            placeholder="Your Full Name" required minlength="2" autocomplete="name" />
+        </div>
+
+        <div class="mt-3">
+          <label for="user_email" class="form-label">Email Address</label>
+          <input id="user_email" type="email" class="form-control" name="user_email" [(ngModel)]="contact.user_email"
+            placeholder="example@gmail.com" required email autocomplete="email" />
+        </div>
+
+        <div class="mt-3">
+          <label for="subject" class="form-label">Subject</label>
+          <input id="subject" type="text" class="form-control" name="subject" [(ngModel)]="contact.subject"
+            placeholder="Enter Subject" required />
+        </div>
+
+        <div class="mt-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-control" name="message" [(ngModel)]="contact.message" rows="5"
+            placeholder="Write your message..." required minlength="10"></textarea>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+          <button type="submit" class="btn btn-dark" [disabled]="isSending || contactForm.invalid">
+            {{ isSending ? 'Sending...' : 'Send Message' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="Joshua Daniel, Home" (click)="closeMenu()">
+    <span class="logo-mark" aria-hidden="true"></span>
+    <span class="brand-name">Joshua Daniel</span>
+  </a>
+
+  <!-- Desktop nav -->
+  <nav class="pill" aria-label="Primary">
+    @for (l of links; track l.id) {
+    <a [href]="'#' + l.id" class="pill-link" [class.active]="active() === l.id" [class.accent]="l.accent">
+      <small>{{ l.n }}</small>{{ l.label }}@if (l.accent) { <span aria-hidden="true"> ↗</span> }
+    </a>
+    }
+  </nav>
+
+  <div class="tools">
+    <!-- Sun / Moon toggle -->
+    <button class="theme" type="button" (click)="ts.toggleTheme()" [attr.data-mode]="ts.theme()"
+      [attr.aria-label]="ts.theme() === 'light' ? 'Switch to dark theme' : 'Switch to light theme'">
+      <svg class="icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+      <svg class="icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </svg>
+    </button>
+
+    <!-- Hamburger (mobile only) -->
+    <button class="burger" type="button" (click)="toggleMenu()" [class.open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()" aria-controls="mobile-menu" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" [class.open]="menuOpen()" (click)="closeMenu()">
+  <nav class="mobile-nav" aria-label="Mobile" (click)="$event.stopPropagation()">
+    @for (l of links; track l.id; let i = $index) {
+    <a [href]="'#' + l.id" class="m-link" [class.active]="active() === l.id" [class.accent]="l.accent"
+      [style.transition-delay.ms]="menuOpen() ? 60 + i * 50 : 0" (click)="closeMenu()">
+      <small>{{ l.n }}</small>
+      <span>{{ l.label }}</span>
+      @if (l.accent) { <em aria-hidden="true">↗</em> }
+    </a>
+    }
+  </nav>
+</div>

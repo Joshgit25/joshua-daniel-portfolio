@@ -1,0 +1,27 @@
+<section class="skill-section" id="skills">
+  <div class="grid-bg"></div>
+  <div class="container-fluid px-5">
+    <p class="section-label" data-aos="fade-right"><b>04</b> // ACADEMIC PEDIGREE • DISCOVERY TIMELINE</p>
+    <div class="row mt-3">
+      <div class="col-lg-7 left-col">
+        <h1 class="beyond-title" data-aos="fade-up" data-aos-delay="100">{{ edu | uppercase }}</h1>
+        <h1 class="beyond-title italic-blue" data-aos="fade-up" data-aos-delay="200">& {{ jur | uppercase }}.</h1>
+        <p class="skills-text mt-4" data-aos="fade-up" data-aos-delay="300">
+          A timeline of academic milestones that shaped my thinking, creativity, and technical foundation.
+        </p>
+      </div>
+      <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="tech-card" *ngFor="let education of educations; let i = index"
+             [attr.data-aos]="'zoom-in'"
+             [attr.data-aos-delay]="(i * 100) + 100">
+          <div class="card-inner edu-card">
+            <i class="fa {{ education.icon }}" [style.color]="education.color"></i>
+            <span class="skill-name">{{ education.degree }}</span>
+            <span class="edu-school">{{ education.school }}</span>
+            <span class="edu-year">{{ education.year }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

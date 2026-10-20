@@ -1,0 +1,95 @@
+<section class="about" id="about" aria-labelledby="about-heading">
+
+  <div class="grid-bgs"></div>
+
+  <div class="container-fluid px-4 px-lg-5">
+
+    <p class="section-label"><b>02</b> // WHO AM I • MANIFESTO</p>
+
+    <div class="row g-5 align-items-center mt-1">
+
+      <!-- LEFT: story -->
+      <div class="col-lg-7" data-aos="fade-up">
+
+        <h2 id="about-heading" class="beyond-title">
+          Beyond
+          <span class="beyond-accent">code.</span>
+        </h2>
+
+        <blockquote class="manifesto-quote">
+          I don't just build websites. I build digital experiences people remember.
+        </blockquote>
+
+        <div class="bio">
+          <p>
+            I'm Joshua Daniel, a front-end developer based in the historic city of Madurai, Tamil Nadu.
+            Over the past 1.6 years I've built web applications with Angular, TypeScript, HTML5, CSS3
+            and Bootstrap.
+          </p>
+          <p>
+            My work includes a P2P web application, full-stack admin and user panels, authentication
+            flows, and Node.js services backed by MySQL. I enjoy learning new technologies and taking
+            on challenging projects.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <!-- <dl class="stats">
+          @for (s of stats; track s.label) {
+            <div class="stat">
+              <dt class="stat-label">{{ s.label }}</dt>
+              <dd class="stat-value">{{ s.value }}</dd>
+            </div>
+          }
+        </dl> -->
+
+        <!-- Tabbed details -->
+        <div class="details">
+          <div class="tablist" role="tablist" aria-label="More about me">
+            @for (t of tabs; track t.id; let i = $index) {
+            <button type="button" role="tab" class="tab" [id]="'about-tab-' + t.id"
+              [class.active]="activeTab() === t.id" [attr.aria-selected]="activeTab() === t.id"
+              [attr.aria-controls]="'about-panel'" [attr.tabindex]="activeTab() === t.id ? 0 : -1"
+              (click)="selectTab(t.id)" (keydown)="onTabKey($event, i)">
+              {{ t.label }}
+            </button>
+            }
+          </div>
+
+          <ul class="panel" id="about-panel" role="tabpanel" [attr.aria-labelledby]="'about-tab-' + activeTab()">
+            @for (item of items(); track item.title) {
+            <li class="panel-item">
+              <span class="panel-title">{{ item.title }}</span>
+              @if (item.meta) {
+              <span class="panel-meta">{{ item.meta }}</span>
+              }
+            </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <a class="btn-solid" href="#resume">View resume</a>
+          <a class="btn-ghost" href="#contact">Get in touch</a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: portrait -->
+      <div class="col-lg-5 portrait-col" data-aos="fade-up" data-aos-delay="120">
+        <figure class="portrait">
+          <img class="portrait-img" src="/about.me.png" alt="Portrait of Joshua Daniel" loading="lazy">
+          <figcaption class="portrait-tag">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>
+              <strong>Madurai, India</strong>
+              <small>Open to opportunities</small>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</section>

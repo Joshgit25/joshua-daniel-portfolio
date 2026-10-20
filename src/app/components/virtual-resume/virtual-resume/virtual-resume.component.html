@@ -1,0 +1,230 @@
+<section class="skill-section" id="resume">
+
+    <div class="grid-bg"></div>
+
+    <div class="container-fluid px-5">
+
+        <!-- Section Label -->
+        <p class="section-label"><b>05</b> // CURRICULUM VITAE • DIGITAL RESUME</p>
+
+        <div class="row mt-3 align-items-start">
+
+            <!-- ── LEFT COLUMN ── -->
+            <div class="col-lg-5 left-col" data-aos="fade-up" data-aos-delay="100">
+                <div class="left-sticky">
+
+                    <h1 class="beyond-title">{{ firstName | uppercase }}</h1>
+                    <h1 class="beyond-title italic-blue">& {{ secondName | uppercase }}.</h1>
+
+                    <p class="left-desc mt-3">
+                        A snapshot of my journey, skills, and experience — crafted into a single document.
+                    </p>
+
+                    <div class="d-flex mt-4 flex-wrap gap-3">
+                        <button type="button" class="view-btn" (click)="viewResume()" [disabled]="showResume">
+                            <i class="fa fa-eye me-2" aria-hidden="true"></i>
+                            View Resume
+                        </button>
+
+                        <a [href]="resumePdf" download class="download-btn" aria-label="Download resume PDF">
+                            <i class="fa fa-download me-2" aria-hidden="true"></i>
+                            Download PDF
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="stats-row mt-5">
+                        <div class="stat-card">
+                            <span class="stat-number">1.6</span>
+                            <span class="stat-label">Years Exp</span>
+                        </div>
+                        <!-- <div class="stat-card">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Tech Stacks</span>
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ── RIGHT COLUMN — Detail Card ── -->
+            <div class="col-lg-7 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+                <div class="detail-card">
+
+                    <!-- Header -->
+                    <div class="resume-header">
+                        <h3 class="resume-name">B JOSHUA DANIEL</h3>
+                        <h6 class="resume-role">Computer Application Student • Angular Developer</h6>
+                        <div class="resume-meta">
+                            <span><i class="fa fa-envelope me-1"></i>joshuadaniel.dev&#64;gmail.com</span>
+                            <span><i class="fa fa-phone me-1"></i>+91 9789405333</span>
+                            <span><i class="fa fa-location-dot me-1"></i>Madurai, Tamil Nadu</span>
+                        </div>
+                    </div>
+
+                    <div class="divider-line"></div>
+
+                    <!-- Tabs -->
+                    <nav class="resume-tabs">
+                        <button *ngFor="let s of sections" (click)="selectSection(s)" [class.active]="contents === s">
+                            {{ s | titlecase }}
+                        </button>
+                    </nav>
+
+                    <div class="divider-line"></div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content-area" [ngSwitch]="contents">
+
+                        <!-- OVERVIEW -->
+                        <div *ngSwitchCase="'overview'" id="overview" class="content-main">
+                            <h6 class="content-heading">CAREER OBJECTIVE & VISION</h6>
+                            <p class="content-para">
+                                Front-End Developer with 1.6 years of professional experience specializing in
+                                Angular, TypeScript, JavaScript, HTML5, CSS3 and Bootstrap. Experienced in
+                                developing P2P web applications, full-stack Admin and User Panels, responsive
+                                interfaces, authentication and authorization flows, RESTful API integration,
+                                Node.js back-end services, rate limiting and MySQL database integration.
+                            </p>
+
+                            <h6 class="content-heading mt-4">EXPERIENCE</h6>
+                            <div class="exp-item" *ngFor="let exp of experience">
+                                <div class="exp-header">
+                                    <span class="exp-role">{{ exp.role }}</span>
+                                    <span class="exp-period">{{ exp.period }}</span>
+                                </div>
+                                <p class="exp-company">{{ exp.company }}</p>
+                                <ul class="exp-points">
+                                    <li *ngFor="let point of exp.points">{{ point }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- SKILLS -->
+                        <div *ngSwitchCase="'skills'" class="content-main">
+                            <h6 class="content-heading">TECHNICAL SKILLS</h6>
+                            <div class="row g-3">
+                                <div class="col-md-6" *ngFor="let skill of stacks">
+                                    <div class="stack-card">
+                                        <div class="stack-title">{{ skill.name }}</div>
+                                        <div class="stack-content">{{ skill.tech }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PROJECTS -->
+
+                        <div *ngSwitchCase="'projects'" class="content-main">
+                            <h6 class="content-heading">PROJECTS</h6>
+
+                            <div class="projects-list">
+
+                                <!-- E-Commerce Website -->
+                                <div class="project-item">
+                                    <div class="project-header">
+                                        <div>
+                                            <h5 class="project-title">E-Commerce Website</h5>
+                                            <p class="project-tech">
+                                                Angular · TypeScript · REST API · JSON · HTML · CSS · Bootstrap </p>
+                                        </div>
+                                        <span class="project-number">01</span>
+                                    </div>
+
+                                    <p class="project-description">
+                                        Developed and maintained an e-commerce web application
+                                        with separate admin and user panels to manage products,
+                                        customers, and shopping activities.
+                                    </p>
+
+                                    <ul class="project-points">
+                                        <li>Developed responsive user interfaces using Angular.</li>
+                                        <li>Implemented CRUD operations for managing application data.</li>
+                                        <li>Integrated REST APIs to retrieve and update data.</li>
+                                        <li>Worked on admin and user panel functionalities.</li>
+                                        <li>Improved usability and responsive layouts across devices.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Trading Website -->
+                                <div class="project-item">
+                                    <div class="project-header">
+                                        <div>
+                                            <h5 class="project-title">Trading Website</h5>
+                                            <p class="project-tech">
+                                                Angular · TypeScript · REST API · JSON · HTML · CSS · Bootstrap
+
+                                            </p>
+                                        </div>
+                                        <span class="project-number">02</span>
+                                    </div>
+
+                                    <p class="project-description">
+                                        Contributed to the development of a trading web application
+                                        with responsive interfaces and dedicated admin and user
+                                        panels for managing application data and trading-related
+                                        information.
+                                    </p>
+
+                                    <ul class="project-points">
+                                        <li>Developed reusable Angular components.</li>
+                                        <li>Implemented CRUD operations for application modules.</li>
+                                        <li>Integrated REST APIs for backend communication.</li>
+                                        <li>Created responsive layouts using HTML, CSS, and Bootstrap.</li>
+                                        <li>Worked on UI improvements and application functionality.</li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- EDUCATION -->
+                        <div *ngSwitchCase="'education'" class="content-main">
+                            <h6 class="content-heading">EDUCATION</h6>
+                            <div class="edu-item">
+                                <div class="exp-header">
+                                    <span class="exp-role">BCOMCA (Computer Application)</span>
+                                    <span class="exp-period">2021 – 2024</span>
+                                </div>
+                                <p class="exp-company">The American College, Madurai</p>
+                                <div class="exp-header">
+                                    <span class="exp-role">Higher Secondary Certificate (HSC) — 12th</span>
+                                    <span class="exp-period">2020 – 2021</span>
+                                </div>
+                                <p class="exp-company">Madurai • Score: 73%
+
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FALLBACK -->
+                        <div *ngSwitchDefault class="content-main">
+                            <p class="text-muted">Select a section above.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── Resume Preview Modal ── -->
+<div class="resume-modal" *ngIf="showResume" (click)="closeResume()" role="dialog" aria-modal="true"
+    aria-label="Resume preview">
+
+    <button type="button" class="resume-modal__close" (click)="closeResume()" aria-label="Close preview">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+
+    <div class="resume-modal__content" (click)="$event.stopPropagation()">
+        <img [src]="previewResume" alt="Resume preview" class="resume-modal__img" />
+    </div>
+
+</div>
