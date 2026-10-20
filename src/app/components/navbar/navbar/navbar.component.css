@@ -35,8 +35,8 @@
   height: 36px;
   display: block;
   background-color: var(--text);
-  -webkit-mask: url('/logo-jd.svg') no-repeat center / contain;
-  mask: url('/logo-jd.svg') no-repeat center / contain;
+  -webkit-mask: url('logo-jd.svg') no-repeat center / contain;
+  mask: url('logo-jd.svg') no-repeat center / contain;
 }
 
 /* Show the right logo per theme */
