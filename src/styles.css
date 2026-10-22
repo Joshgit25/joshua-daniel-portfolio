@@ -212,7 +212,7 @@ code,
   position: relative;
   /* background-color: var(--bg); */
   color: var(--text);
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 80px 0 100px;
   font-family: "Cormorant Garamond", Georgia, serif;
   overflow: hidden;
