@@ -1,0 +1,93 @@
+<section class="skill-section" id="certificate">
+    <div class="grid-bg"></div>
+
+    <div class="container-fluid px-5">
+        <p class="section-label" data-aos="fade-right"><b>05</b> // PROFESSIONAL DEVELOPMENT</p>
+
+        <div class="row mt-3">
+            <div class="col-lg-7">
+                <h2 class="beyond-title" data-aos="fade-up" data-aos-delay="100">{{ cer | uppercase }}</h2>
+                <h2 class="beyond-title italic-blue" data-aos="fade-up" data-aos-delay="200">&amp; {{ train | uppercase }}.</h2>
+                <p class="skills-text mt-4" data-aos="fade-up" data-aos-delay="300">
+                    Building a strong foundation in modern web technologies.
+                </p>
+            </div>
+        </div>
+
+        <div class="certi-grid">
+            @for (cert of certificates; track cert.id; let i = $index) {
+                <!--
+                    AOS rule: never put data-aos on an element that has its own hover
+                    transition (card, chip, button) - AOS overrides `transition`, so the
+                    hover would snap. AOS sits on wrappers; hover styling on inner elements.
+                -->
+                <div class="cert-wrap" data-aos="fade-up" data-aos-duration="800" [attr.data-aos-delay]="i * 150 + 300">
+                    <article class="cert-card">
+
+                        <!-- Certificate thumbnail -->
+                        <button type="button" class="cert-thumb" (click)="openCertificate(cert)"
+                            [attr.aria-label]="'Preview ' + cert.title + ' certificate'"
+                            data-aos="fade-right" data-aos-duration="900" [attr.data-aos-delay]="i * 150 + 500">
+                            <img [src]="cert.image" alt="" loading="lazy" />
+                            <span class="cert-thumb__overlay">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> Preview
+                            </span>
+                            <span class="cert-seal" aria-hidden="true"><i class="fa-solid fa-award"></i></span>
+                        </button>
+
+                        <!-- Details -->
+                        <div class="cert-body">
+                            <div class="cert-head">
+                                <span class="cert-status" data-aos="fade-left" [attr.data-aos-delay]="i * 150 + 550">
+                                    <span class="dot"></span>{{ cert.status }}
+                                </span>
+                                <span class="cert-index" aria-hidden="true">0{{ i + 1 }}</span>
+                            </div>
+
+                            <h3 class="cert-title" data-aos="fade-left" [attr.data-aos-delay]="i * 150 + 650">{{ cert.title }}</h3>
+                            <p class="cert-issuer" data-aos="fade-left" [attr.data-aos-delay]="i * 150 + 750">
+                                {{ cert.issuer }} · {{ cert.type }}
+                            </p>
+
+                            @if (cert.description) {
+                                <p class="cert-desc" data-aos="fade-up" [attr.data-aos-delay]="i * 150 + 800">{{ cert.description }}</p>
+                            }
+
+                            <div class="cert-divider" data-aos="fade-right" [attr.data-aos-delay]="i * 150 + 850"></div>
+
+                            <ul class="cert-skills">
+                                @for (skill of cert.skills; track skill; let j = $index) {
+                                    <li data-aos="zoom-in" [attr.data-aos-delay]="i * 150 + 900 + j * 100">
+                                        <span class="cert-chip">{{ skill }}</span>
+                                    </li>
+                                }
+                            </ul>
+
+                            <div class="cert-action" data-aos="fade-up" [attr.data-aos-delay]="i * 150 + 1100">
+                                <button type="button" class="view-cert-btn" (click)="openCertificate(cert)">
+                                    <span>View Certificate</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Certificate preview modal -->
+@if (selected) {
+    <div class="cert-modal" role="dialog" aria-modal="true"
+        [attr.aria-label]="selected.title + ' certificate preview'" (click)="closeCertificate()">
+
+        <button type="button" class="cert-modal__close" (click)="closeCertificate()" aria-label="Close preview">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+
+        <div class="cert-modal__content" (click)="$event.stopPropagation()">
+            <img [src]="selected.image" [alt]="selected.title + ' certificate'" class="cert-modal__img" />
+        </div>
+    </div>
+}

@@ -9,11 +9,12 @@ import { VirtualResumeComponent } from '../../virtual-resume/virtual-resume/virt
 import AOS from 'aos';
 import { ContactComponent } from '../../contact/contact/contact.component';
 import { FooterComponent } from '../../footer/footer/footer.component';
+import { CertificateComponent } from '../../certificate/certificate/certificate.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [NavbarComponent, AboutComponent, CommonModule, SkillsComponent, EducationComponent, VirtualResumeComponent, ContactComponent, FooterComponent],
+  imports: [NavbarComponent, AboutComponent, CommonModule, SkillsComponent, EducationComponent, VirtualResumeComponent, ContactComponent, FooterComponent, CertificateComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css',
 })
