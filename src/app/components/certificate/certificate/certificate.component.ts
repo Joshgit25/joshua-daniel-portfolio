@@ -33,7 +33,7 @@ export class CertificateComponent implements OnDestroy {
       status: 'Completed',
       description: 'Hands-on training in building responsive websites with HTML5, CSS3 and JavaScript.',
       skills: ['HTML5', 'CSS3', 'JavaScript'],
-      image: '/joshua-daniel-portfolio/corizo_certificate.jpeg'
+      image: '/corizo_certificate.jpeg'
     },
     {
       id: 2,
@@ -43,7 +43,7 @@ export class CertificateComponent implements OnDestroy {
       status: 'Completed',
       description: 'Completed a 3-month internship gaining practical experience in HTML, CSS, JavaScript, and Angular through real-world projects.',
       skills: ['HTML', 'CSS', 'JavaScript', 'Angular'],
-      image: '/joshua-daniel-portfolio/internship-certificate.png'
+      image: '/internship-certificate.png'
     }
   ];
 

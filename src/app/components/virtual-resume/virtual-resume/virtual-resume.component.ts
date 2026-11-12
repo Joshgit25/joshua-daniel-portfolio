@@ -19,8 +19,8 @@ export class VirtualResumeComponent implements AfterViewInit {
   contents: Section = 'overview';
 
   showResume = false;
-  previewResume = '/joshua-daniel-portfolio//updated_resume.jpeg';
-  resumePdf = '/joshua-daniel-portfolio//Joshua_Daniel_Resume.pdf';
+  previewResume = '//updated_resume.jpeg';
+  resumePdf = '/Joshua_Daniel_Resume.pdf';
 
   stacks = [
     { id: 1, name: 'Frontend', tech: 'HTML5, CSS3, JavaScript, TypeScript, Angular 19, Bootstrap 5' },
