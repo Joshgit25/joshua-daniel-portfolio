@@ -1,11 +1,24 @@
-.skill-section {
-    /* background-color: var(--bg-soft); */
+.skills-grid {
+    align-items: stretch;
+    /* equal-height cards in each row */
+}
+
+.tech-card {
+    display: flex;
+    /* lets the inner card fill the height */
 }
 
 .edu-card {
-    height: auto !important;
+    width: 100%;
+    height: 100% !important;
+    /* was auto, which caused uneven heights */
     padding: 24px 16px !important;
     gap: 8px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* icon and title start at the same line */
     text-align: center;
 }
 
@@ -13,14 +26,26 @@
     font-size: 1.8rem !important;
 }
 
+.edu-card .skill-name {
+    min-height: 2.6em;
+    /* reserves room for 2 lines of title */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .edu-school {
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 0.72rem;
     color: var(--text-muted);
     line-height: 1.3;
+    min-height: 2.6em;
+    /* keeps the year badge on the same line */
 }
 
 .edu-year {
+    margin-top: auto;
+    /* pins the year badge to the bottom */
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.68rem;
     letter-spacing: 0.1em;
@@ -29,4 +54,15 @@
     background: var(--accent-soft);
     padding: 2px 10px;
     border-radius: 20px;
+}
+
+/* Mobile: two equal columns, or switch to one column if text feels cramped */
+@media (max-width: 600px) {
+    .skills-grid {
+        display: block;
+    }
+
+    .tech-card {
+        margin-top: 10px;
+    }
 }
