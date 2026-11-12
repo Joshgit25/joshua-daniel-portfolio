@@ -17,7 +17,7 @@ declare var bootstrap: any;
   styleUrl: './contact.component.css'
 })
 export class ContactComponent implements AfterViewInit {
-  profileImg = '/joshua-daniel-portfolio/Josh_pic.jpeg';
+  profileImg = '/joshua-daniel-portfolio/josh-pic.jpeg';
   showContact = false;
   constructor(private toastr: ToastrService) { }
   isSending = false;
